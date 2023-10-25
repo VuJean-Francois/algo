@@ -1,9 +1,9 @@
-// Lister les 12 étudiants
+// Lister les 12 apprenants
 const apprenants = [
     'Jérémie',
     'Abdallah',
     'Julian',
-    'Sephora',
+    'Séphora',
     'Christine',
     'Cécile',
     'Denis',
@@ -15,27 +15,24 @@ const apprenants = [
 ];
 // Fonction qui va mélanger aléatoirement un tableau
 function melanger(tableau) {
-    for(let i = tableau.length-1;i < 0; i--) {
+    for(let i = tableau.length-1;i >0; i--) {
         const j = Math.floor(Math.random()*(i+1));
-        [tableau[i], tableau[j]] = [tableau[j], tableau[i]];
+        [tableau[i], tableau[j]] = [tableau[j],tableau[i]];
     }
 }
-
 // On mélange le tableau
 melanger(apprenants);
-// Création des paires
+// Création des paires de 2 personnes
 const paires = [];
-for(let i = 0; i < apprenants.length; i+=2) {
+for(let i = 0;i < apprenants.length; i+=2) {
     if(i + 1 < apprenants.length) {
-        paires.push([apprenants[i], apprenants[i+1]]);
+        paires.push([apprenants[i],apprenants[i+1]]);
     }
 }
-
 // Afficher les groupes
 let resultat = '';
-for(let i = 0; i< paires.length; i++) {
+for(let i = 0; i < paires.length; i++) {
     //alert(paires[i][0]+" et "+paires[i][1]);
-    resultat += '<tr><td>'+paires[i][0]+'</td><td>'+paires[i][1]+'</td></tr>';
-   
-} 
+    resultat+= '<tr><td>'+paires[i][0]+'</td><td>'+paires[i][1]+'</td></tr>';
+}
 document.getElementById('bretagne').innerHTML+= resultat;

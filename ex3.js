@@ -1,4 +1,4 @@
-function paysU(){
+function pays(){
     let pays = prompt('Dans quel pays habitez-vous?');
     pays = pays.toLowerCase();
     switch(pays){
@@ -15,4 +15,6 @@ function paysU(){
             alert('Hors Europe');
     }
 }
-paysU();
+pays();
+
+// prompt('Dans quel pays habitez-vous?') == 'france' ? alert('French Baguette =)')

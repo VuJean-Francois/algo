@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Générateur de mot de passe aléatoire.</h1>
+    <p>Le mot de passe comporte :</p>
+    <ul>
+        <li>1 majuscule</li>
+        <li>1 minuscule</li>
+        <li>1 chiffre</li>
+        <li>1 caractère spécial</li>
+    </ul>
+    <button id="generateur" onclick="main()">Générer le mot de passe !</button>
+    <p id="mdp"></p>
+    
+    <script>
+function main() {
+    document.getElementById("mdp").innerHTML='';
+    function initPassword(chars, mdp) {
+    mdp.push(chars.maj.charAt(Math.floor(Math.random() * chars.maj.length)));
+    mdp.push(chars.min.charAt(Math.floor(Math.random() * chars.min.length)));
+    mdp.push(chars.chiffre.charAt(Math.floor(Math.random() * chars.chiffre.length)));
+    mdp.push(chars.spec.charAt(Math.floor(Math.random() * chars.spec.length)));
+
+}
+
+function password(chars, mdp, length) {
+    if (mdp.length==1) initPassword(chars, mdp);
+    if (mdp.length==length) {
+        mdp.sort(function(){return 0.5 - Math.random()});
+        return;
+    }
+    mdp.push(chars.all.charAt(Math.floor((Math.random() * chars.all.length) + 0)));
+    password(chars, mdp, length);
+}
+
+const chars = {
+    maj: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    min: 'abcdefghijklmnopqrstuvwxyz',
+    chiffre: '0123456789',
+    spec: '?!',
+    all: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789?!'
+};
+
+let length = Math.floor((Math.random() * 7) + 10);
+let mdp = [chars.spec.charAt(Math.floor(Math.random() * chars.spec.length))];
+password(chars, mdp, length);
+mdp.forEach(function(ch) {document.getElementById("mdp").innerHTML+=ch});
+}
+
+    </script>
+</body>
+</html>

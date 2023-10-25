@@ -1,14 +1,15 @@
-function croissant(tableau) {
-    tableau.sort();
+function up(tableau) {
+    tableau.sort(function(a, b){return a - b});
+    return;
 }
  
-function decroissant(tableau) {
-    tableau.sort();
-    tableau.reverse();
+function dec(tableau) {
+    tableau.sort(function(a, b){return b - a});
+    return;
 }
 
 let tableauDesordre = [78,64,89,18,22,35,29,56,22];
-let tableauCroi = croissant(tableauDesordre);
-console.log("tableau croissant : "+tableauCroi);
-let tableauDecroi = decroissant(tableauDesordre);
-console.log("tableau décroissant : "+tableauDecroi);
+up(tableauDesordre);
+console.log(`tableau croissant : ${tableauDesordre}`);
+dec(tableauDesordre);
+console.log(`tableau décroissant : ${tableauDesordre}`);
