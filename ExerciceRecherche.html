@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function rechercheElement(tab, elem) {
+            let i;
+            for (i=0;i<tab.length;i++)
+                if (tab[i]==elem) return true;
+            return false;
+        }
+        const tab = ["Thomas", "aime", "le", "Liban", "!"];
+        let elem = "JF";
+        console.log(rechercheElement(tab, elem));
+    </script>
+</body>
+</html>

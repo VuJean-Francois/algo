@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+    font-size: 25px;
+    background-color: skyblue;
+    border-radius: 10px;
+    padding: 30px;
+}
+    #affichage {
+        background-color: grey;
+        color: rgb(236, 218, 218);
+        font-weight: 900;
+        padding: 50px;
+        font-size:40px;
+    }
+    button:hover {
+        background-color: blue;
+    }
+    button:active {
+        background-color: red;
+    }
+    h1{
+        background-color: black; 
+        color: white;
+        
+        margin: auto;
+    }
+    body{
+
+        font-size: 25px;
+        background-color: rgb(233, 235, 135);
+        border-radius: 10px;
+        padding: 100px;
+        margin: auto;
+    }
+    </style>
+</head>
+<body>
+    <h1>La calculatrice Made in TN</h1>
+    <div>
+        <button type="button" onclick="res = 0; touche = -1;temp1 = 0;temp2 = 0;op = 0;etape = 1;c=0;document.getElementById('affichage').innerHTML = res;">Clear !</button>
+    </div>
+    <div>
+        <button type="button" onclick="touche=1; if (op != 0) {etape=2;} else {etape=1;};  if (etape == 1) {temp1=temp1*10+touche;document.getElementById('affichage').innerHTML = temp1;} else {temp2=temp2*10+touche;document.getElementById('affichage').innerHTML = temp2;}">1 </button>
+        <button type="button" onclick="touche=2; if (op != 0) {etape=2;} else {etape=1;};  if (etape == 1) {temp1=temp1*10+touche;document.getElementById('affichage').innerHTML = temp1;} else {temp2=temp2*10+touche;document.getElementById('affichage').innerHTML = temp2;}">2 </button>
+        <button type="button" onclick="touche=3; if (op != 0) {etape=2;} else {etape=1;};  if (etape == 1) {temp1=temp1*10+touche;document.getElementById('affichage').innerHTML = temp1;} else {temp2=temp2*10+touche;document.getElementById('affichage').innerHTML = temp2;}">3 </button>
+    </div>
+    <div>
+        <button type="button" onclick="touche=4; if (op != 0) {etape=2;} else {etape=1;};  if (etape == 1) {temp1=temp1*10+touche;document.getElementById('affichage').innerHTML = temp1;} else {temp2=temp2*10+touche;document.getElementById('affichage').innerHTML = temp2;}">4 </button>
+        <button type="button" onclick="touche=5; if (op != 0) {etape=2;} else {etape=1;};  if (etape == 1) {temp1=temp1*10+touche;document.getElementById('affichage').innerHTML = temp1;} else {temp2=temp2*10+touche;document.getElementById('affichage').innerHTML = temp2;}">5 </button>
+        <button type="button" onclick="touche=6; if (op != 0) {etape=2;} else {etape=1;};  if (etape == 1) {temp1=temp1*10+touche;document.getElementById('affichage').innerHTML = temp1;} else {temp2=temp2*10+touche;document.getElementById('affichage').innerHTML = temp2;}">6 </button>
+    </div>
+    <div>
+        <button type="button" onclick="touche=7; if (op != 0) {etape=2;} else {etape=1;};  if (etape == 1) {temp1=temp1*10+touche;document.getElementById('affichage').innerHTML = temp1;} else {temp2=temp2*10+touche;document.getElementById('affichage').innerHTML = temp2;}">7 </button>
+        <button type="button" onclick="touche=8; if (op != 0) {etape=2;} else {etape=1;};  if (etape == 1) {temp1=temp1*10+touche;document.getElementById('affichage').innerHTML = temp1;} else {temp2=temp2*10+touche;document.getElementById('affichage').innerHTML = temp2;}">8 </button>
+        <button type="button" onclick="touche=9; if (op != 0) {etape=2;} else {etape=1;};  if (etape == 1) {temp1=temp1*10+touche;document.getElementById('affichage').innerHTML = temp1;} else {temp2=temp2*10+touche;document.getElementById('affichage').innerHTML = temp2;}">9 </button>
+    </div>
+    <div>
+        <button type="button" onclick="touche=0; if (op != 0) {etape=2;} else {etape=1;};  if (etape == 1) {temp1=temp1*10+touche;document.getElementById('affichage').innerHTML = temp1;} else {temp2=temp2*10+touche;document.getElementById('affichage').innerHTML = temp2;}">0 </button>
+        <button type="button" onclick="if (touche!=-1) {op=1};  ">+ </button>
+        <button type="button" onclick="if (touche!=-1) {op=2}; ">- </button>
+    </div>
+    <div>
+        <button type="button" onclick="if (touche!=-1) {op=3}; ">x </button>
+        <button type="button" onclick="if (touche!=-1) {op=4}; ">/ </button>
+        <button type="button" onclick="if (touche!=-1) {res=resultat(op, temp1, temp2, etape); document.getElementById('affichage').innerHTML = res; res = 0; touche = -1;temp1 = 0;temp2 = 0;op = 0;etape = 1;c=0;}">= </button>
+    </div>
+    <footer>
+        <p id = "affichage"> 
+        </p>
+    </footer>
+    <script>
+        let res = 0;
+        let touche = -1;
+        let temp1 = 0;
+        let temp2 = 0
+        let op = 0;
+        let etape = 1;
+        
+
+        function operateur(op, temp1, temp2, etape) {
+            
+        }
+        function resultat(op, temp1, temp2, etape) {
+            let res;
+            if (op==1) {
+                res=parseInt(temp1)+parseInt(temp2);
+            } else if (op==2) {
+                res=temp1-temp2;
+            } else if (op==3) {
+                res=temp1*temp2;
+            } else if (op==4) {
+                res=temp1/temp2;
+            }
+            return res;
+        }
+        
+        document.getElementById("affichage").innerHTML = res;
+        
+    </script>
+</body>
+</html>

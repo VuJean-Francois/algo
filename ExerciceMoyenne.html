@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function moyenne(tab) {
+            let somme = 0;
+            let i;
+            for (i=0;i<tab.length;i++) 
+                somme+=tab[i];
+            return (somme/tab.length);
+
+        }
+        const tab = [1, 5, 7, 50, 92, 1001];
+        console.log(moyenne(tab));
+    </script>
+</body>
+</html>
